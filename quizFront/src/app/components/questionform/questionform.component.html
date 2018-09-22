@@ -1,0 +1,46 @@
+<div class="container">
+    <h1>Question Form</h1>
+    <form #questionForm="ngForm">
+      <div class="form-group">
+        <label for="question">Question</label>
+        <input type="text" class="form-control" id="question" required 
+        [(ngModel)] = "model.question" name="question">
+        question is: {{model.question}}
+      </div>
+ 
+      <div class="form-group">
+        <label for="answer">Answer 1</label>
+        <input type="text" class="form-control" id="answer" required
+        
+        [(ngModel)] = "model.answer" name="answer">
+        answer is : {{model.answer}}
+      </div>
+ 
+      <div class="form-group">
+          <label for="answer2">Answer 2</label>
+          <input type="text" class="form-control" id="answer2" required
+        
+          [(ngModel)] = "model.answer2" name="answer2">
+          {{model.answer2}}
+        </div>
+
+        <div class="form-group">
+            <label for="answer3">Answer 3</label>
+            <input type="text" class="form-control" id="answer3" required
+        
+            [(ngModel)] = "model.answer3" name="answer3">
+            {{model.answer3}}
+          </div>
+
+          <div class="form-group">
+              <label for="realanswer">Correct Answer</label>
+              <input type="text" class="form-control" id="realanswer" required
+        
+              [(ngModel)] = "model.realanswer" name="realanswer">
+              {{model.realanswer}}
+            </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+ 
+    </form>
+</div>
