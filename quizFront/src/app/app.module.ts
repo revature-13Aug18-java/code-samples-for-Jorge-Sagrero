@@ -14,6 +14,11 @@ import { RoutercompComponent } from './components/routercomp/routercomp.componen
 import { RouterModule } from '@angular/router';
 import { QuizzieComponent } from './components/quizzie/quizzie.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
+import { UpdateInfoComponent } from './components/update-info/update-info.component';
+import { ViewStatsComponent } from './components/view-stats/view-stats.component';
+import { TakeQuizComponent } from './components/take-quiz/take-quiz.component';
+import { DefaultComponent } from './components/default/default.component';
+import { LoggedInComponent } from './components/logged-in/logged-in.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,12 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
     QuestionformComponent,
     RoutercompComponent,
     QuizzieComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    UpdateInfoComponent,
+    ViewStatsComponent,
+    TakeQuizComponent,
+    DefaultComponent,
+    LoggedInComponent
   ],
   imports: [
     BrowserModule,

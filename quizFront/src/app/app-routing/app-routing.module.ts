@@ -5,6 +5,11 @@ import { GetterComponent } from '../components/getter/getter.component';
 import { QuestionformComponent } from '../components/questionform/questionform.component';
 import { QuizzieComponent } from '../components/quizzie/quizzie.component';
 import { CreateUserComponent } from '../components/create-user/create-user.component';
+import { UpdateInfoComponent } from '../components/update-info/update-info.component';
+import { TakeQuizComponent } from '../components/take-quiz/take-quiz.component';
+import { ViewStatsComponent } from '../components/view-stats/view-stats.component';
+import { DefaultComponent } from '../components/default/default.component';
+import { LoggedInComponent } from '../components/logged-in/logged-in.component';
 
 export const routes: Routes = [ {
 
@@ -25,7 +30,23 @@ export const routes: Routes = [ {
 },{
   path: 'createUser' ,
   component: CreateUserComponent
+},{
+  path: 'updateInfo' ,
+  component: UpdateInfoComponent
+},{
+  path: 'takeQuiz' ,
+  component: TakeQuizComponent
+},{
+  path: 'viewStats' ,
+  component: ViewStatsComponent
+},{
+  path: 'default' ,
+  component: DefaultComponent
+},{
+  path: 'loggedIn' ,
+  component: LoggedInComponent
 },
+
  {
   path: '**',
   pathMatch: 'full',

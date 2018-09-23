@@ -9,6 +9,8 @@ import { LoginCredentials } from './models/loginCredentials';
   providedIn: 'root'
 })
 export class ApiServiceService {
+  userId: number = 555;
+  landingPage: boolean;
 
   urlamount = 'amount=';
   urlbase= 'https://opentdb.com/api.php?';
@@ -17,9 +19,22 @@ export class ApiServiceService {
   newAccUrl = 'http://localhost:8083/'
   urlLogin = 'http://localhost:8083/'
   urlSubmitQuiz = 'http://localhost:8083/'
-  
-  constructor(private http: HttpClient) { }
 
+  
+  constructor(private http: HttpClient) {
+    this.landingPage = true;
+   }
+    setValue(val) {
+    this.userId = val;
+    }
+
+    getValue() {
+    return this.userId ;
+    }
+
+  public updateInfo(login) {
+    return this.http.post<newAccount>(this.newAccUrl + this.userId, login);
+  }
   
   public createQuiz(quizzie) {
     return this.http.post<newAccount>(this.urlSubmitQuiz, quizzie);
