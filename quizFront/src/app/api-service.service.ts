@@ -16,7 +16,7 @@ export class ApiServiceService {
   urlbase= 'https://opentdb.com/api.php?';
   urlcategory='&category=';
   url2 = 'https://opentdb.com/api_category.php';
-  newAccUrl = 'http://localhost:8080/Quiz_System_P2/';
+  newAccUrl = 'http://localhost:8080/Quiz_System_P2/createUser';
   urlLogin = 'http://localhost:8080/Quiz_System_P2/login';
   urlSubmitQuiz = 'http://localhost:8080/Quiz_System_P2/';
 
@@ -41,7 +41,7 @@ export class ApiServiceService {
   }
   public createUser(login) {
     //return this.http.post<newAccount>(this.newAccUrl, login);
-        return this.http.post<LoginCredentials>(this.urlLogin, { username: login.username, password : login.password, displayName : login.displayName  });
+        return this.http.post<LoginCredentials>(this.newAccUrl, { username: login.username, password : login.password, displayName : login.displayName  });
 
   }
 
