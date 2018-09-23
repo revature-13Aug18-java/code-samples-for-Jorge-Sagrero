@@ -40,7 +40,9 @@ export class ApiServiceService {
     return this.http.post<newAccount>(this.urlSubmitQuiz, quizzie);
   }
   public createUser(login) {
-    return this.http.post<newAccount>(this.newAccUrl, login);
+    //return this.http.post<newAccount>(this.newAccUrl, login);
+        return this.http.post<LoginCredentials>(this.urlLogin, { username: login.username, password : login.password, displayName : login.displayName  });
+
   }
 
   public verifyCredentials(login) {
@@ -58,4 +60,5 @@ export class ApiServiceService {
     return this.http
       .get<IPosts>(newurl);
   }
+  
 }
