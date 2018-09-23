@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   login: LoginCredentials = new LoginCredentials();
+  user: any;
 
   constructor(private apiService: ApiServiceService) {
 
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
   }
 
   public submit() {
-    this.apiService.verifyCredentials(this.login).subscribe(data => {
+    this.apiService.verifyCredentials(this.login).subscribe((data) => {
+      console.log(data);
       alert("User Verified, welcome back");
     });
   }
