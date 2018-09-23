@@ -46,8 +46,9 @@ export class ApiServiceService {
   }
 
   public verifyCredentials(login) {
-    return this.http.post<LoginCredentials>(this.urlLogin, login);
-    //return this.http.post<LoginCredentials>(this.urlLogin, { 'username': login.username, 'password' : login.password });
+    // return this.http.post<LoginCredentials>(this.urlLogin, login);
+    // console.log (login);
+     return this.http.post(this.urlLogin, { username: login.username, password : login.password });
   }
 
   getCats(): Observable<Category> {
