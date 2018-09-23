@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginCredentials } from '../../models/loginCredentials';
+import { ApiServiceService } from '../../api-service.service';
 
 @Component({
   selector: 'app-login',
@@ -7,15 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  username: String;
-  password: String;
-  constructor() { }
+  login: LoginCredentials = new LoginCredentials();
+  
+  constructor(private apiService: ApiServiceService) { }
 
   ngOnInit() {
   }
 
-  submit() {
-
+  public submit() {
+    this.apiService.verifyCredentials(this.login).subscribe(data => {
+      alert("User Verified, welcome back");
+    });
   }
-
+  
 }

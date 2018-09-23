@@ -1,11 +1,11 @@
 export class CreateQuestion {
 
-    constructor(
-        public question: string,
-        public answer: string,
-        public answer2: string,
-        public answer3: string,
-        public realanswer: string
-    ){}
+    
+    question: string;
+    answer: string;
+    answer2: string;
+    answer3: string;
+    realanswer: string;
+    
 
 }

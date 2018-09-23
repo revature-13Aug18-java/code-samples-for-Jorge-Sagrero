@@ -20,7 +20,7 @@
 
 
 
-<div class="form-group" class="container">
+<div *ngIf='!check' class="form-group" class="container">
         <label for= "category3">
             Select The Category!
         </label>
@@ -37,6 +37,7 @@
 <label for= "questions"> Enter the Number of Questions (Max = 50) </label>
 <input id="questions" type="number" min="0" max="50" step="1.0" [(ngModel)]="amounts" placeholder="amount"><br>
 
+<button (click)='getCategory()' class='btn btn-danger'>Select to Generate Questions</button>
     </div>
     <!-- <div *ngIf='check'>
     <ul *ngFor="let post of posts.results">
@@ -45,25 +46,35 @@
     </ul>
     </div>  -->
     <p>Take Your Quizzie</p>
-  <button (click)='getCategory()' class='btn btn-danger'>Select to Generate Questions</button>
+ 
   <div *ngIf='check' class="form-group" class ="container">
       <label for= "Quizzie">
           {{posts.results[count].question}}
       </label>
       <select id="Quizzie" name="Quizzie"
       [(ngModel)]="userAnswer" class="form-control">
-      <option  [value]="posts.results[count].correct_answer">
+
+      
+      <option *ngIf='!alternate' [value]="posts.results[count].correct_answer">
           {{posts.results[count].correct_answer}}
       </option>
       <option *ngFor="let incorrect of posts.results[count].incorrect_answers" [value]="incorrect">
         {{incorrect}}
       </option>
+      <option *ngIf='alternate' [value]="posts.results[count].correct_answer">
+            {{posts.results[count].correct_answer}}
+        </option>
+         
+                   
+            
       
       </select>
-
+      <button (click)='getAnswer()' class='btn btn-danger'>Enter your answer
+    </button>
   </div>
-  <button (click)='getAnswer()' class='btn btn-danger'>Enter your answer
-  </button>
+  <div *ngIf='!check' class="container-fluid" style="text-align:center">
+ <label>Your Results: {{results}}%</label>
+</div>
 
 
     

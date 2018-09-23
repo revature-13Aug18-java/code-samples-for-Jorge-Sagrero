@@ -1,46 +1,73 @@
-<div class="container">
+<div *ngIf = '!check' class="container">
+  
     <h1>Question Form</h1>
     <form #questionForm="ngForm">
       <div class="form-group">
         <label for="question">Question</label>
-        <input type="text" class="form-control" id="question" required 
-        [(ngModel)] = "model.question" name="question">
+        <input type="text" class="form-control" id="question"  
+        [(ngModel)] = "model.question" name="question" required/>
         question is: {{model.question}}
       </div>
  
       <div class="form-group">
         <label for="answer">Answer 1</label>
-        <input type="text" class="form-control" id="answer" required
+        <input type="text" class="form-control" id="answer" 
         
-        [(ngModel)] = "model.answer" name="answer">
+        [(ngModel)] = "model.answer" name="answer" required/>
         answer is : {{model.answer}}
       </div>
  
       <div class="form-group">
           <label for="answer2">Answer 2</label>
-          <input type="text" class="form-control" id="answer2" required
+          <input type="text" class="form-control" id="answer2" 
         
-          [(ngModel)] = "model.answer2" name="answer2">
+          [(ngModel)] = "model.answer2" name="answer2" required/>
           {{model.answer2}}
         </div>
 
         <div class="form-group">
             <label for="answer3">Answer 3</label>
-            <input type="text" class="form-control" id="answer3" required
+            <input type="text" class="form-control" id="answer3" 
         
-            [(ngModel)] = "model.answer3" name="answer3">
+            [(ngModel)] = "model.answer3" name="answer3" required/>
             {{model.answer3}}
           </div>
 
           <div class="form-group">
               <label for="realanswer">Correct Answer</label>
-              <input type="text" class="form-control" id="realanswer" required
+              <input type="text" class="form-control" id="realanswer" 
         
-              [(ngModel)] = "model.realanswer" name="realanswer">
+              [(ngModel)] = "model.realanswer" name="realanswer" required/>
               {{model.realanswer}}
             </div>
 
-      <button type="submit" class="btn btn-success">Submit</button>
+            <button [disabled]="!questionForm.valid" (click)='submit()' class='btn btn-danger'>Select to add question</button>
+            
+            <div *ngIf="!questionForm.valid">
+                Enter All Fields
+              </div>
  
     </form>
+
+</div>
+
+<div *ngIf='check'>
+
+  <!-- <form #newQuizzie="ngForm"> -->
+  <div class="form-group"> 
+      <label for="newQuiz">Enter the name of this Custom Quiz</label>
+      <input type="newQuiz" class="form-control" id="newQuiz"  
+      [(ngModel)] = "quizzie.quizName" name="newQuiz" required/>
+      question is: {{quizzie.quizName}}
+    </div>
+    
+    <div class="form-group"> 
+        <label for= "questions"> Enter the Number of Questions for the Custom Quiz (Max = 50) </label>
+        <input id="questions" type="number" min="0" max="50" step="1.0" [(ngModel)]="amounts" placeholder="amount" required/><br>
+        question is: {{amounts}}
+      </div>
+
+    
+    <button  (click)='submitAmounts()' class='btn btn-danger'>Enter</button>
+<!-- </form> -->
 </div>

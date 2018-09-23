@@ -22,6 +22,8 @@ export class QuizzieComponent implements OnInit {
   userAnswer: any;
   count: number = 0;
   correctAns: number = 0;
+  results: number = 0;
+  alternate = false
   
 
 
@@ -63,9 +65,11 @@ export class QuizzieComponent implements OnInit {
       this.correctAns = this.correctAns + 1;
       console.log("Correct!")
     }
+    this.alternate = !this.alternate;
     this.count = this.count + 1;
     console.log(this.userAnswer);
     if(this.count == this.amounts) {
+      this.results = ((this.correctAns)/(this.amounts))*100;
       console.log("your score is " + ((this.correctAns)/(this.amounts))*100 + "%")
       this.check = false;
       this.count = 0;
