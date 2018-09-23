@@ -14,11 +14,11 @@ export class ApiServiceService {
 
   urlamount = 'amount=';
   urlbase= 'https://opentdb.com/api.php?';
-  urlcategory='&category=' 
+  urlcategory='&category=';
   url2 = 'https://opentdb.com/api_category.php';
-  newAccUrl = 'http://localhost:8083/'
-  urlLogin = 'http://localhost:8083/'
-  urlSubmitQuiz = 'http://localhost:8083/'
+  newAccUrl = 'http://localhost:8080/';
+  urlLogin = 'http://localhost:8080/login';
+  urlSubmitQuiz = 'http://localhost:8080/';
 
   
   constructor(private http: HttpClient) {
@@ -45,6 +45,7 @@ export class ApiServiceService {
 
   public verifyCredentials(login) {
     return this.http.post<LoginCredentials>(this.urlLogin, login);
+    //return this.http.post<LoginCredentials>(this.urlLogin, { 'username': login.username, 'password' : login.password });
   }
 
   getCats(): Observable<Category> {

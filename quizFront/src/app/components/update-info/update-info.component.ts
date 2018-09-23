@@ -10,7 +10,7 @@ import { newAccount } from '../../models/newAccount';
 export class UpdateInfoComponent implements OnInit {
 
   constructor(private apiService: ApiServiceService) { }
-
+//make sure changes are to password and displayName
   login: newAccount = new newAccount();
   
   ngOnInit() {
