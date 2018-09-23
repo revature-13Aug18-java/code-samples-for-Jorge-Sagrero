@@ -1,9 +1,21 @@
+<html>
 <!--The content below is only a placeholder and can be replaced.-->
+<style>
+html {background-color: rgb(209, 209, 209);}
+img{
+  font-size:20px;
+  margin: 0 auto; 
+  width:250px;
+  height: 200px;
+  }
+</style>
+
 <div *ngIf = '!router' class="container-fluid" style="text-align:center">
 
   <h1>
     Welcome to {{ title }}!
   </h1>
+  <img id="mainImg" src="https://i1.wp.com/www.whistlekickmartialartsradio.com/wp-content/uploads/2016/02/quiz-1.gif">
 
   
   <!-- <app-routercomp></app-routercomp> -->
@@ -19,8 +31,28 @@
 <button routerLink="/default">Take Quizzies as A Default User!</button>
 
 </div>
-
 <router-outlet></router-outlet>
 
 
 
+
+
+
+<!-- <div *ngIf = 'userHome' class="container-fluid" style="text-align:center">
+    <app-dashboard></app-dashboard>
+    <router-outlet></router-outlet>
+
+</div> -->
+
+<!-- <div *ngIf = 'navigate' class="container-fluid" style="text-align:center">
+    <router-outlet></router-outlet>
+
+</div> -->
+
+
+
+
+
+
+
+</html>

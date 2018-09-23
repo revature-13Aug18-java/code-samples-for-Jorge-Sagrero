@@ -2,8 +2,17 @@
   <h1 class="tx-info">Welcome {{sysService.user.fullName}}</h1>
 </div>
 
-<div class="container">
-  <table class="table">
+<div class="container"class="container-fluid" style="text-align:center">
+<br>
+    <button  routerLink="/questionform">Create A Custom Quiz</button>
+    <br><br>
+    <button  routerLink="/viewStats">View Your Stats</button>
+    <br><br>
+    <button  routerLink="/updateInfo">Update Personal Info</button>
+    <br><br>
+    <button  routerLink="/takeQuiz">Take a Quiz!</button>
+
+  <!-- <table class="table">
     <tr>
       <td>View All Taken Quizzes ({{sysService.user.taken}}) <br>
         <button class="btn btn-info" (click)="moveToTaken()">View</button>
@@ -24,5 +33,5 @@
       <td>Create New Quiz: <button class="btn btn-info" (click)="createNewQuiz()">Create</button></td>
       <td>View Available Quizes <button class="btn btn-info" (click)="viewAvailableQuizes()">View</button></td>
     </tr>
-  </table>
+  </table> -->
 </div> 
