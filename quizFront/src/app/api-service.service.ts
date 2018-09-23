@@ -16,9 +16,9 @@ export class ApiServiceService {
   urlbase= 'https://opentdb.com/api.php?';
   urlcategory='&category=';
   url2 = 'https://opentdb.com/api_category.php';
-  newAccUrl = 'http://localhost:8080/';
-  urlLogin = 'http://localhost:8080/login';
-  urlSubmitQuiz = 'http://localhost:8080/';
+  newAccUrl = 'http://localhost:8080/Quiz_System_P2/';
+  urlLogin = 'http://localhost:8080/Quiz_System_P2/login';
+  urlSubmitQuiz = 'http://localhost:8080/Quiz_System_P2/';
 
   
   constructor(private http: HttpClient) {
