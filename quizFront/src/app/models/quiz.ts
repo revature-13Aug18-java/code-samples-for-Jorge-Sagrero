@@ -9,7 +9,7 @@ export class Quiz {
     questions: String;
     creatror: Account;
 
-    addQuestion(questionId: number) {
+    addQuestion(questionId: Number) {
         if (this.questions.length) {
             this.questions += ',' + questionId;
         }
