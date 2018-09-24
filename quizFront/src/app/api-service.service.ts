@@ -19,11 +19,14 @@ export class ApiServiceService {
   newAccUrl = 'http://localhost:8080/Quiz_System_P2/createUser';
   urlLogin = 'http://localhost:8080/Quiz_System_P2/login';
   urlSubmitQuiz = 'http://localhost:8080/Quiz_System_P2/';
-
+  quizExistsUrl = 'http://localhost:8080/Quiz_System_P2/';
   
   constructor(private http: HttpClient) {
     this.landingPage = true;
    }
+   public quizExists(newQuizName) {
+    return this.http.post(this.quizExistsUrl , newQuizName);
+    }
     setValue(val) {
     this.userId = val;
     }

@@ -17,6 +17,7 @@ export class QuestionformComponent implements OnInit {
   amounts: number = 0;
   count: number = 0;
   check: boolean = true;
+  nameCheck: any;
 
   constructor(private apiService: ApiServiceService) { }
 
@@ -38,8 +39,25 @@ export class QuestionformComponent implements OnInit {
   }
   
   submitAmounts() {
-    this.check = false;
+    this.apiService.quizExists(this.quizzie.quizName).subscribe((data )=> {
+      if(data === true) {
+        this.nameCheck = data;
+        console.log(data);
+        alert("Quiz name taken")
+      }
+      else{
+        this.nameCheck = data;
+        console.log(data);
+        alert("quiz name not take")
+        this.check = false;
     console.log(this.quizzie)
+      }
+      this.nameCheck = data;
+      console.log(data);
+
+    });
+    // this.check = false;
+    // console.log(this.quizzie)
   }
 
   get diagnostic() {return JSON.stringify(this.model);}
