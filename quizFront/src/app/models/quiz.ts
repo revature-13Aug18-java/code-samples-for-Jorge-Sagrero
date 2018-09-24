@@ -12,6 +12,8 @@ export class Quiz {
     addQuestion(questionId: number) {
         if (this.questions.length) {
             this.questions += ',' + questionId;
+        } else{
+            
         }
     }
 
