@@ -37,6 +37,11 @@ export class QuestionformComponent implements OnInit {
       this.check = true;
     }
   }
+
+  addQuestion() {
+    this.apiService.addQuestion(this.model).subscribe((data) => {
+      this.quizzie.addQuestion(data); } );
+  }
   
   submitAmounts() {
     this.apiService.quizExists(this.quizzie.quizName).subscribe((data )=> {

@@ -20,7 +20,8 @@ export class ApiServiceService {
   urlLogin = 'http://localhost:8080/Quiz_System_P2/login';
   urlSubmitQuiz = 'http://localhost:8080/Quiz_System_P2/';
   quizExistsUrl = 'http://localhost:8080/Quiz_System_P2/';
-  
+  newQuestion = 'http://localhost:8080/Quiz_System_P2/addQuestion';
+
   constructor(private http: HttpClient) {
     this.landingPage = true;
    }
@@ -37,6 +38,10 @@ export class ApiServiceService {
 
   public updateInfo(login) {
     return this.http.post<newAccount>(this.newAccUrl + this.userId, login);
+  }
+
+  public addQuestion(question) {
+    return this.http.post<Number>(this.newQuestion, question);
   }
   
   public createQuiz(quizzie) {
