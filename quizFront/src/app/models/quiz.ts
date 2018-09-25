@@ -9,12 +9,16 @@ export class Quiz {
     questions: String = ',';
     creator: Account;
 
-    addQuestion(questionId: Number) {
-        if (this.questions.length) {
-            this.questions +="" + questionId + ',';
-        } else{
+    // public addQuestion(questionId: Number) {
+    //     console.log("adding question: " +questionId);
+    //     if (this.questions.length) {
+    //         console.log("before: " + this.questions);
+    //         this.questions +="" + questionId + ',';
+    //         console.log("after: " + this.questions);
 
-        }
-    }
+    //     } else{
+
+    //     }
+    // }
 
 }
