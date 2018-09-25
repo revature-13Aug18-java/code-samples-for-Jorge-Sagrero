@@ -40,8 +40,8 @@
               <label for="realanswer">Correct Answer</label>
               <input type="text" class="form-control" id="realanswer" 
         
-              [(ngModel)] = "model.realanswer" name="realanswer" required/>
-              {{model.realanswer}}
+              [(ngModel)] = "model.questAns" name="realanswer" required/>
+              {{model.questAns}}
             </div>
 
             <button [disabled]="!questionForm.valid" (click)='submit()' class='btn btn-danger'>Select to add question</button>

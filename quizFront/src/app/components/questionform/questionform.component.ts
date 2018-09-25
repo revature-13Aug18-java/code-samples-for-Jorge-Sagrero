@@ -47,13 +47,24 @@ export class QuestionformComponent implements OnInit {
       this.check = true;
     }
   }
+addQuestionDataBase(questionId: Number) {
+    console.log("adding question: updated " +questionId);
+    if (this.quizzie.questions.length) {
+        console.log("before: " + this.quizzie.questions);
+        this.quizzie.questions +="" + questionId + ',';
+        console.log("after: " + this.quizzie.questions);
+
+    } else{
+
+    }
+}
 
   addQuestion() {
     
     this.model.ansSet = this.answerModel.answer + ';' + this.answerModel.answer2 + ';' + this.answerModel.answer3;
     console.log(this.model);
     this.apiService.addQuestion(this.model).subscribe((data) => {
-      this.quizzie.addQuestion(data); } );
+      this.addQuestionDataBase(data); } );
   }
   
   submitAmounts() {
