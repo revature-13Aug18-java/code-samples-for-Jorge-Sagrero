@@ -18,8 +18,8 @@ export class ApiServiceService {
   url2 = 'https://opentdb.com/api_category.php';
   newAccUrl = 'http://localhost:8080/Quiz_System_P2/createUser';
   urlLogin = 'http://localhost:8080/Quiz_System_P2/login';
-  urlSubmitQuiz = 'http://localhost:8080/Quiz_System_P2/';
-  quizExistsUrl = 'http://localhost:8080/Quiz_System_P2/';
+  urlSubmitQuiz = 'http://localhost:8080/Quiz_System_P2/createQuiz';
+  quizExistsUrl = 'http://localhost:8080/Quiz_System_P2/quizExists';
   newQuestion = 'http://localhost:8080/Quiz_System_P2/addQuestion';
 
   constructor(private http: HttpClient) {
@@ -45,7 +45,7 @@ export class ApiServiceService {
   }
   
   public createQuiz(quizzie) {
-    return this.http.post<newAccount>(this.urlSubmitQuiz, quizzie);
+    return this.http.post(this.urlSubmitQuiz, quizzie);
   }
   public createUser(login) {
     //return this.http.post<newAccount>(this.newAccUrl, login);

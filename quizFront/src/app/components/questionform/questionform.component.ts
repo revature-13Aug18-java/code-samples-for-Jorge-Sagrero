@@ -22,7 +22,8 @@ export class QuestionformComponent implements OnInit {
   constructor(private apiService: ApiServiceService) { }
 
   submit() {
-    this.quizzie.questions[this.count] = this.model;
+    // this.quizzie.questions[this.count] = this.model;
+    this.addQuestion();
     this.model = new CreateQuestion();
     this.count = this.count +1;
     console.log("amounts = " + this.amounts +" count = " + this.count);
@@ -30,8 +31,15 @@ export class QuestionformComponent implements OnInit {
       this.count = 0;
       this.amounts = 0;
       console.log(this.quizzie);
-      this.apiService.createQuiz(this.quizzie).subscribe(data => {
-        alert("Quiz Saved!");
+      this.apiService.createQuiz(this.quizzie).subscribe((data) => {
+        if(data === true) {
+          alert("Quiz Saved!");
+
+        }
+        else{
+          alert("Quiz not Saved!");
+
+        }
       });
       this.quizzie = new Quiz();
       this.check = true;
@@ -39,11 +47,13 @@ export class QuestionformComponent implements OnInit {
   }
 
   addQuestion() {
+    console.log(this.model);
     this.apiService.addQuestion(this.model).subscribe((data) => {
       this.quizzie.addQuestion(data); } );
   }
   
   submitAmounts() {
+    console.log(this.quizzie.quizName);
     this.apiService.quizExists(this.quizzie.quizName).subscribe((data )=> {
       if(data === true) {
         this.nameCheck = data;
@@ -56,7 +66,7 @@ export class QuestionformComponent implements OnInit {
         alert("quiz name not take")
         this.check = false;
     console.log(this.quizzie)
-      }
+  }
       this.nameCheck = data;
       console.log(data);
 

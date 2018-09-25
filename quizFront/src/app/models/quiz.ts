@@ -6,14 +6,14 @@ export class Quiz {
     quizId: Number;
     quizName: String;
     lockStatus = 0;
-    questions: String;
-    creatror: Account;
+    questions: String = ',';
+    creator: Account;
 
     addQuestion(questionId: Number) {
         if (this.questions.length) {
-            this.questions += ',' + questionId;
+            this.questions +="" + questionId + ',';
         } else{
-            
+
         }
     }
 
