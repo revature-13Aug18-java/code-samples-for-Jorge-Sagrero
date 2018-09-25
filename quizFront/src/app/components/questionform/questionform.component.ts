@@ -3,6 +3,7 @@ import { CreateQuestion } from '../../models/create-question'
 import { Quiz } from '../../models/quiz';
 import {ApiServiceService } from '../../api-service.service';
 import { Misc } from '../../models/misc';
+import { AnswerSet } from '../../models/answerSet';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class QuestionformComponent implements OnInit {
   count: number = 0;
   check: boolean = true;
   nameCheck: any;
+  answerModel = new AnswerSet();
 
   constructor(private apiService: ApiServiceService) { }
 
@@ -47,6 +49,8 @@ export class QuestionformComponent implements OnInit {
   }
 
   addQuestion() {
+    
+    this.model.ansSet = this.answerModel.answer + ';' + this.answerModel.answer2 + ';' + this.answerModel.answer3;
     console.log(this.model);
     this.apiService.addQuestion(this.model).subscribe((data) => {
       this.quizzie.addQuestion(data); } );
