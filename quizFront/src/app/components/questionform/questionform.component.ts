@@ -63,7 +63,7 @@ export class QuestionformComponent implements OnInit {
       else{
         this.nameCheck = data;
         console.log(data);
-        alert("quiz name not take")
+        alert("Quiz name available")
         this.check = false;
     console.log(this.quizzie)
   }
