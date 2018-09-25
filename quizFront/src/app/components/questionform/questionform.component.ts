@@ -27,6 +27,7 @@ export class QuestionformComponent implements OnInit {
     // this.quizzie.questions[this.count] = this.model;
     this.addQuestion();
     this.model = new CreateQuestion();
+    this.answerModel = new AnswerSet();
     this.count = this.count +1;
     console.log("amounts = " + this.amounts +" count = " + this.count);
     if (this.count == this.amounts) {
