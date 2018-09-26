@@ -13,13 +13,9 @@ export class CreateUserComponent implements OnInit {
   constructor(private apiService: ApiServiceService, private router: Router) { }
   account: any;
   login: newAccount = new newAccount();
-  screenName: string;
-  ngOnInit() {
-    this.screenName = localStorage.getItem('displayName');
-    if(this.screenName  == null) {
-      this.router.navigate(['/login']);
-    }
 
+  ngOnInit() {
+  
 
   }
   public submit() {
