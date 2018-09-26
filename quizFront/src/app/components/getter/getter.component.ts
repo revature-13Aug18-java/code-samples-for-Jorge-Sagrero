@@ -3,6 +3,8 @@ import {ApiServiceService } from '../../api-service.service';
 import { IPosts } from '../../models/IPosts';
 import { Category } from '../../models/category';
 import {Category2} from '../../models/category2';
+import { Quiz } from '../../models/quiz';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-getter',
@@ -19,6 +21,8 @@ export class GetterComponent implements OnInit {
   printedOption: any;
   amounts: number = 0;
 
+  quizList: Quiz[];
+
   category2: Category2[] = [
     { id: 9, name: 'General Knowledge'},
     { id: 10, name: 'Entertainment: Books'},
@@ -26,12 +30,12 @@ export class GetterComponent implements OnInit {
     { id: 12, name: 'Entertainment: Music'},
     { id: 13, name: 'Entertainment: Musicals & Theatres'}
   ];
-  constructor(private apiService: ApiServiceService) { }
+  constructor(private apiService: ApiServiceService, private route: Router) { }
 
   ngOnInit() {
     this.apiService.getCats().subscribe((allCats) => { console.log(allCats); this.cats = allCats;
     this.category3 = allCats.trivia_categories; });
-
+      this.getQuizList();
   }
 
 
@@ -39,22 +43,37 @@ export class GetterComponent implements OnInit {
   getUsers() {
     console.log(this.amounts);
     this.apiService.getPosts(this.category3s, this.amounts).subscribe((allIPosts) => { console.log(allIPosts); this.posts = allIPosts; } );
-    
+
   }
 
   getCategory() {
     this.check = true;
     this.printedOption = this.category3s;
-    console.log(this.category3s); 
+    console.log(this.category3s);
     console.log(this.amounts);
-  
+
     this.getUsers();
   }
 
-  
-  
+  getQuizList() {
+    this.apiService.getQuizList().subscribe((quizCollection) => {
+      console.log(quizCollection);
+      this.quizList = quizCollection;
+     });
+  }
 
- 
+  takeQuiz(id) {
+    console.log('Selected Quiz Id: ' + id);
+    this.apiService.getQuestions(id).subscribe((quests) => {
+      console.log(quests);
+      this.apiService.questionList = quests;
+      this.apiService.isRight = new Array(quests.length);
+      console.log(this.apiService.isRight);
+    this.apiService.currentQuestion = this.apiService.questionList[0]; });
+    this.apiService.quizBegan = false;
+    this.route.navigate(['/savedQuizzie']);
+  }
+
 
 
 }

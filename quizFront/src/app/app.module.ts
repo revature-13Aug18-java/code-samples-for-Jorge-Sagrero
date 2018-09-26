@@ -20,6 +20,7 @@ import { TakeQuizComponent } from './components/take-quiz/take-quiz.component';
 import { DefaultComponent } from './components/default/default.component';
 import { LoggedInComponent } from './components/logged-in/logged-in.component';
 import { UserQuizzieComponent } from './components/user-quizzie/user-quizzie.component';
+import { QuizzieSessionComponent } from './components/quizzie-session/quizzie-session.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { UserQuizzieComponent } from './components/user-quizzie/user-quizzie.com
     TakeQuizComponent,
     DefaultComponent,
     LoggedInComponent,
-    UserQuizzieComponent
+    UserQuizzieComponent,
+    QuizzieSessionComponent
   ],
   imports: [
     BrowserModule,
