@@ -17,8 +17,13 @@ export class LoginComponent implements OnInit {
   constructor(private apiService: ApiServiceService, private router: Router) {
 
    }
+   ionViewWillEnter(){
+    localStorage.clear();
+   }
 
   ngOnInit() {
+    localStorage.clear();
+
   }
 
 //   The following snippet accesses the current domain's local Storage object and adds a data item to it using Storage.setItem().

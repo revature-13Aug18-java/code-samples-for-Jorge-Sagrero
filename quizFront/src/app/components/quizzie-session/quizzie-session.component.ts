@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from '../../api-service.service';
 import { CreateQuestion } from '../../models/create-question';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quizzie-session',
@@ -14,9 +15,14 @@ export class QuizzieSessionComponent implements OnInit {
   currentAnswer: String;
   possibleAnswers: String[];
 
-  constructor(private aipServe: ApiServiceService) { }
-
+  constructor(private aipServe: ApiServiceService, private router: Router) { }
+  screenName: string;
   ngOnInit() {
+    this.screenName = localStorage.getItem('displayName');
+    if(this.screenName  == null) {
+      this.router.navigate(['/login']);
+
+    }
   }
 
   beginQuiz() {

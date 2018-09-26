@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from '../../api-service.service';
 import { newAccount } from '../../models/newAccount';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-info',
@@ -9,12 +10,18 @@ import { newAccount } from '../../models/newAccount';
 })
 export class UpdateInfoComponent implements OnInit {
 
-  constructor(private apiService: ApiServiceService) { }
+  constructor(private apiService: ApiServiceService, private router: Router) { }
 //make sure changes are to password and displayName
   login: newAccount = new newAccount();
   
-  ngOnInit() {
+ 
 
+  screenName: string;
+  ngOnInit() {
+    this.screenName = localStorage.getItem('displayName');
+    if(this.screenName  == null) {
+      this.router.navigate(['/login']);
+    }
   }
 
   public submit() {

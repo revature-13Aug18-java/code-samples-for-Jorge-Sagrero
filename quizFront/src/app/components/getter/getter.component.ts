@@ -30,9 +30,15 @@ export class GetterComponent implements OnInit {
     { id: 12, name: 'Entertainment: Music'},
     { id: 13, name: 'Entertainment: Musicals & Theatres'}
   ];
-  constructor(private apiService: ApiServiceService, private route: Router) { }
+  constructor(private apiService: ApiServiceService, private router: Router) { }
 
+  screenName: string;
   ngOnInit() {
+    this.screenName = localStorage.getItem('displayName');
+    if(this.screenName  == null) {
+      this.router.navigate(['/login']);
+
+    }
     this.apiService.getCats().subscribe((allCats) => { console.log(allCats); this.cats = allCats;
     this.category3 = allCats.trivia_categories; });
       this.getQuizList();
@@ -71,7 +77,7 @@ export class GetterComponent implements OnInit {
       console.log(this.apiService.isRight);
     this.apiService.currentQuestion = this.apiService.questionList[0]; });
     this.apiService.quizBegan = false;
-    this.route.navigate(['/savedQuizzie']);
+    this.router.navigate(['/savedQuizzie']);
   }
 
 

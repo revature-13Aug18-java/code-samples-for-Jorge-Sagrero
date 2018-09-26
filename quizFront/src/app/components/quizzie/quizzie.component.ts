@@ -3,6 +3,7 @@ import {ApiServiceService } from '../../api-service.service';
 import { IPosts } from '../../models/IPosts';
 import { Category } from '../../models/category';
 import {Category2} from '../../models/category2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quizzie',
