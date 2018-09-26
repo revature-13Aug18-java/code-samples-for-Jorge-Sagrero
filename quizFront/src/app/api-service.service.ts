@@ -5,6 +5,9 @@ import { IPosts } from './models/IPosts';
 import { Category } from './models/category';
 import { newAccount } from './models/newAccount';
 import { LoginCredentials } from './models/loginCredentials';
+import { Quiz } from './models/quiz';
+import { CreateQuestion } from './models/create-question';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +24,20 @@ export class ApiServiceService {
   urlSubmitQuiz = 'http://localhost:8080/Quiz_System_P2/createQuiz';
   quizExistsUrl = 'http://localhost:8080/Quiz_System_P2/quizExists';
   newQuestion = 'http://localhost:8080/Quiz_System_P2/addQuestion';
+  quizListUrl = 'http://localhost:8080/Quiz_System_P2/quizList';	// Or whatever you used for port number
+  startQuizUrl = 'http://localhost:8080/Quiz_System_P2/QuizSession';
+  questionList: CreateQuestion[];
+  currentQuestion: CreateQuestion;
+  isRight: String[];
+  quizBegan: boolean;
+
+  public getQuizList() {
+    return this.http.get<Quiz[]>(this.quizListUrl);
+  }
+
+  getQuestions(id): Observable<CreateQuestion[]> {
+    return this.http.get<CreateQuestion[]>(this.startQuizUrl + '/' + id);
+  }
 
   constructor(private http: HttpClient) {
     this.landingPage = true;
@@ -37,7 +54,7 @@ export class ApiServiceService {
     }
 
   public updateInfo(login) {
-    return this.http.post<newAccount>(this.newAccUrl + this.userId, login);
+    return this.http.post<newAccount>(this.newAccUrl + this.userId, login, { observe:'response'});
   }
 
   public addQuestion(question) {

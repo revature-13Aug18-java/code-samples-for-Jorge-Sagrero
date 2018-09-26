@@ -35,21 +35,22 @@
         
         </select>
 
-<label for= "questions"> Enter the Number of Questions (Max = 50) </label>
-<input id="questions" type="number" min="0" max="50" step="1.0" [(ngModel)]="amounts" placeholder="amount"><br>
+<!-- <label for= "questions"> Enter the Number of Questions (Max = 50) </label>
+<input id="questions" type="number" min="0" max="50" step="1.0" [(ngModel)]="amounts" placeholder="amount"><br> -->
 
-    </div>
-    <div *ngIf='check'>
-    <ul *ngFor="let post of posts.results">
-            <li >{{post.category}} {{post.correct_answer}} {{post.difficulty}} 
-            </li>
-    </ul>
-    </div> 
-    <div class="form-group" class="container" class="container-fluid" style="text-align:center">
-
-  <button (click)='getCategory()' class='btn btn-danger'>Select to Generate Questions</button>
-  </div>
-  
-
+</div>
+    
+<div class="container" >
+    <table class="table" *ngFor="let quiz of quizList">
+        <tr>
+            <td>{{quiz.quizId}}</td>
+            <td>{{quiz.quizName}}</td>
+            <td>{{quiz.creator}}</td>
+            <td>
+                <button class="btn btn-submit" (click)="takeQuiz(quiz.quizId)">Take</button>
+            </td>
+        </tr>
+    </table>
+</div>
     
 

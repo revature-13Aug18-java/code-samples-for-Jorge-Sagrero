@@ -11,6 +11,7 @@ import { ViewStatsComponent } from '../components/view-stats/view-stats.componen
 import { DefaultComponent } from '../components/default/default.component';
 import { LoggedInComponent } from '../components/logged-in/logged-in.component';
 import { UserQuizzieComponent } from '../components/user-quizzie/user-quizzie.component';
+import { QuizzieSessionComponent } from '../components/quizzie-session/quizzie-session.component';
 
 export const routes: Routes = [ {
 
@@ -49,9 +50,11 @@ export const routes: Routes = [ {
 },{
   path: 'userQuizzie' ,
   component: UserQuizzieComponent
-},
+}, {
+  path: 'savedQuizzie',
+  component: QuizzieSessionComponent  
 
- {
+},{
   path: '**',
   pathMatch: 'full',
   redirectTo: ''

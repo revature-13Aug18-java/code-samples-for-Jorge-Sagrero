@@ -1,0 +1,15 @@
+<div *ngIf="!aipServe.quizBegan" class="container">
+  <button class="btn btn-submit" (click)="beginQuiz()">Click Here to Begin</button>
+</div>
+
+
+<div *ngIf="aipServe.quizBegan" class="container">
+  <h1>{{currentQuestionIndex}}. {{aipServe.currentQuestion.questContent}}</h1>
+  <select class="form-control" [(ngModel)]="currentAnswer">
+    <option *ngFor="let answer of possibleAnswers">{{answer}}</option>
+  </select>
+  <button  (click)="previousQuestion()">Go Back</button> 
+  <button  (click)="nextQuestion()">Next</button>
+  <hr>
+  <button class="btn btn-submit" (click)="submit()">Submit</button>
+</div>
