@@ -39,6 +39,13 @@ export class LoginComponent implements OnInit {
 
 //  clear all items
 // localStorage.clear();
+//below are user object elements
+// this.userId = userId;
+// 		this.username = username;
+// 		this.pwd = pwd;
+// 		this.quizzesTaken = quizzesTaken;
+// 		this.quizzesPassed = quizzesPassed;
+// 		this.displayName = displayName;
   public submit() {
     this.apiService.verifyCredentials(this.login).subscribe((data) => {
       console.log(data);
@@ -46,10 +53,18 @@ export class LoginComponent implements OnInit {
         alert("Login Credentials Invalid");
        }
        else {
-         this.user = data;
+        this.user = data;
+         console.log(this.user);
+         console.log("quizzesTaken: " + this.user.quizzesTaken);
+         console.log("quizzesPassed: " + this.user.quizzesPassed);
+
          localStorage.setItem('displayName', this.user.displayName );
          localStorage.setItem('userId', this.user.userId);
          localStorage.setItem('username',this.user.username);
+         localStorage.setItem('quizzesTaken', this.user.quizzesTaken);
+         localStorage.setItem('quizzesPassed', this.user.quizzesPassed);
+         localStorage.setItem('pwd', this.user.pwd);
+
          alert("Welcome Back " + this.user.displayName);
          this.router.navigate(['/loggedIn']);
 

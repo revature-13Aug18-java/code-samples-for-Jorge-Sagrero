@@ -39,8 +39,8 @@ export class GetterComponent implements OnInit {
       this.router.navigate(['/login']);
 
     }
-    this.apiService.getCats().subscribe((allCats) => { console.log(allCats); this.cats = allCats;
-    this.category3 = allCats.trivia_categories; });
+    // this.apiService.getCats().subscribe((allCats) => { console.log(allCats); this.cats = allCats;
+    // this.category3 = allCats.trivia_categories; });
       this.getQuizList();
   }
 
@@ -62,6 +62,7 @@ export class GetterComponent implements OnInit {
   }
 
   getQuizList() {
+    //implement a select quiz by locked status or select quiz by userid
     this.apiService.getQuizList().subscribe((quizCollection) => {
       console.log(quizCollection);
       this.quizList = quizCollection;
@@ -72,6 +73,7 @@ export class GetterComponent implements OnInit {
     console.log('Selected Quiz Id: ' + id);
     this.apiService.getQuestions(id).subscribe((quests) => {
       console.log(quests);
+      //gets questions
       this.apiService.questionList = quests;
       this.apiService.isRight = new Array(quests.length);
       console.log(this.apiService.isRight);

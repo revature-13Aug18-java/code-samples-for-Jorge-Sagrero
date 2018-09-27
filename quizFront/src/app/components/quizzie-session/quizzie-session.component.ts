@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from '../../api-service.service';
 import { CreateQuestion } from '../../models/create-question';
 import { Router } from '@angular/router';
-
+import { Account } from '../../models/account';
+import { newAccount } from '../../models/newAccount';
+//savedquizie router
 @Component({
   selector: 'app-quizzie-session',
   templateUrl: './quizzie-session.component.html',
@@ -21,7 +23,6 @@ export class QuizzieSessionComponent implements OnInit {
     this.screenName = localStorage.getItem('displayName');
     if(this.screenName  == null) {
       this.router.navigate(['/login']);
-
     }
   }
 
@@ -64,6 +65,10 @@ export class QuizzieSessionComponent implements OnInit {
     let total = 0;
     let correct = 0;
     for (; total < this.aipServe.isRight.length; total++) {
+      if(this.aipServe.isRight[total] === undefined) {
+        alert("Answer all the Questions!");
+        return;
+      }
       console.log('Question ' + total);
       console.log('User Answer: ' + this.aipServe.isRight[total]);
       console.log('Real Answer: ' + this.aipServe.questionList[total].questAns);
@@ -74,7 +79,57 @@ export class QuizzieSessionComponent implements OnInit {
 
     console.log('total: ' + total);
     console.log('correct: ' + correct);
-    // Pass Fail logic here
+    console.log(localStorage.getItem('quizzesTaken'));
+    console.log(localStorage.getItem('quizzesPassed'))
+    let quizzesTaken = parseInt(localStorage.getItem('quizzesTaken'));
+    let quizzesPassed = parseInt(localStorage.getItem('quizzesPassed'));
+    let pwd = localStorage.getItem('pwd');
+    let displayName = localStorage.getItem('displayName');
+    let username = localStorage.getItem('username');
+    let userId = parseInt(localStorage.getItem('userId'));
+    let taken;
+    let passed;
+
+    quizzesTaken = quizzesTaken +1;
+    if (((correct)/total) < 0.75) {
+      alert("Failed the exam! (at least 75% to pass)");
+    }
+    else {
+      alert("You passed!");
+      quizzesPassed = quizzesPassed + 1;
+    }
+
+    localStorage.setItem('quizzesPassed', ''+quizzesPassed);
+    localStorage.setItem('quizzesTaken', ''+quizzesTaken);
+
+    let user = new Account;
+    user.displayName = displayName;
+    user.quizzesPassed = quizzesPassed
+    user.quizzesTaken = quizzesTaken;
+    user.pwd = pwd;
+    user.username = username;
+    user.userId = userId;
+    var returned: any;
+    console.log("passed: " + quizzesPassed)
+    console.log("taken: " + quizzesTaken);
+
+    console.log(user);
+   
+    //change users to user after test
+    this.aipServe.updateUser(user).subscribe((dat) => {
+      returned = dat;
+      console.log(dat);
+    }
+      , error => {}, () => {
+        console.log('quizzies taken: '+ returned.quizzesTaken);
+        console.log('quizzies passed: '+ returned.quizzesPassed);
+
+      })
+
+
+    this.router.navigate(['/takeQuiz']);
+
+
   }
 
 }
