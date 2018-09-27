@@ -1,15 +1,21 @@
-<div class="container" style="text-align:center">
-    <form>
-      <label>Username:</label>
-      <input type="text" class="form-control" [(ngModel)]='login.username' name='username'>
-      <label>Password:</label>
-      <input type="password" class="form-control" [(ngModel)]='login.password' name='password'>
-      <label>Display Name:</label>
-      <input type="text" class="form-control" [(ngModel)]='login.displayName' name='displayName'>
-      <br><br>
-      <button class="btn btn-submit" (click)='submit()'>Create User</button>
-
-      <p>username: {{login.username}} password: {{login.password}} displayname {{login.displayName}}</p>
-    </form>
-  </div> 
-  
+<div class="container">
+  <h2 class="text-success">Create New User</h2>
+  <div class="row">
+    <div class="col" style="text-align:left">
+      <form>
+        <h4 class="text-dark">Username:</h4>
+        <input type="text" class="form-control" [(ngModel)]='login.username' name='username'>
+        <h4 class="text-dark">Password:</h4>
+        <input type="password" class="form-control" [(ngModel)]='login.password' name='password'>
+        <h4 class="text-dark">Display Name:</h4>
+        <input type="text" class="form-control" [(ngModel)]='login.displayName' name='displayName'>
+        <br><br>
+        <button class="btn btn-success btn-lg" (click)='submit()'>Create User</button>
+        <!--<p>username: {{login.username}} password: {{login.password}} displayname {{login.displayName}}</p>-->
+      </form>
+    </div>
+    <div class="col">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHbn6nAMYE8SD1oyJiLxy7DcMS0Oqpb_5k616c6nuHqafz18QI" />
+    </div>
+  </div>
+</div>

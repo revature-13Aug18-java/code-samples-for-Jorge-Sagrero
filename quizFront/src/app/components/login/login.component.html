@@ -1,17 +1,13 @@
- <div class="container" class="container-fluid" style="text-align:center">
+ <div class="container" style="text-align:left">
   <form >
-    <label>Username:</label>
+    <h4 class="text-dark">Username:</h4>
     <input type="text" class="form-control" [(ngModel)]='login.username' name='username'>
-    <label>Password:</label>
+    <h4 class="text-dark">Password:</h4>
     <input type="password" class="form-control" [(ngModel)]='login.password' name='password'>
-    <button class="btn btn-submit" (click)='submit()'>Button</button> <br><br>
-    <button type="button" class="btn btn-warning" routerLink="/loggedIn">For now this will take to Useraccount page till we validate</button>
-
+    <br><br>
+    <button class="btn btn-primary" (click)='submit()'>Submit</button> <br><br>
+   
   </form>
-  
-
-
-  
 
 
 </div> 
