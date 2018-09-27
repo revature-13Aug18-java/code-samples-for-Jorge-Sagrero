@@ -1,25 +1,26 @@
-<div class="container" class="container-fluid" style="text-align:center">
-        <app-dashboard></app-dashboard>
+<div class="container-fluid" style="text-align:center">
+    <app-dashboard></app-dashboard>
     <form #update="ngForm">
         <!-- <div class="form-group">
             <label>Username:</label>
             <input type="text" class="form-control" [(ngModel)]='login.username' name='username' required/>
           </div> -->
 
-      <div class="form-group">
-      <label>Password:</label>
-      <input type="password" class="form-control" [(ngModel)]='login.password' name='password' required/>
-      </div>
-
-      <div class="form-group">
-      <label>Display Name:</label>
-      <input type="text" class="form-control" [(ngModel)]='login.displayName' name='displayName' required/>
-      </div>
-
-      <button [disabled]="!update.valid" class="btn btn-submit" (click)='submit()'>Button</button>
-      <div *ngIf="!update.valid">
-          Enter All Fields
+        <br>
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" class="form-control" [(ngModel)]='login.password' name='password' required/>
         </div>
 
-      <p>username: {{login.username}} password: {{login.password}} displayname {{login.displayName}}</p>
+        <div class="form-group">
+            <label>Display Name:</label>
+            <input type="text" class="form-control" [(ngModel)]='login.displayName' name='displayName' required/>
+        </div>
+
+        <button [disabled]="!update.valid" class="btn btn-submit" (click)='submit()'>Update</button>
+        <div *ngIf="!update.valid">
+            Enter All Fields
+        </div>
+
+        <p>username: {{login.username}} password: {{login.password}} displayname {{login.displayName}}</p>
     </form>

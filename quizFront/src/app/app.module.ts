@@ -21,6 +21,7 @@ import { DefaultComponent } from './components/default/default.component';
 import { LoggedInComponent } from './components/logged-in/logged-in.component';
 import { UserQuizzieComponent } from './components/user-quizzie/user-quizzie.component';
 import { QuizzieSessionComponent } from './components/quizzie-session/quizzie-session.component';
+import { LockstatusComponent } from './components/lockstatus/lockstatus.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { QuizzieSessionComponent } from './components/quizzie-session/quizzie-se
     DefaultComponent,
     LoggedInComponent,
     UserQuizzieComponent,
-    QuizzieSessionComponent
+    QuizzieSessionComponent,
+    LockstatusComponent
   ],
   imports: [
     BrowserModule,

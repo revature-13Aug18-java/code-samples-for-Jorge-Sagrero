@@ -24,7 +24,8 @@ export class ApiServiceService {
   urlSubmitQuiz = 'http://localhost:8080/Quiz_System_P2/createQuiz';
   quizExistsUrl = 'http://localhost:8080/Quiz_System_P2/quizExists';
   newQuestion = 'http://localhost:8080/Quiz_System_P2/addQuestion';
-  quizListUrl = 'http://localhost:8080/Quiz_System_P2/quizList';	// Or whatever you used for port number
+  quizListUrl = 'http://localhost:8080/Quiz_System_P2/quizList';// Or whatever you used for port number
+  quizListUrlUId = 'http://localhost:8080/Quiz_System_P2/users/quizzes/';
   startQuizUrl = 'http://localhost:8080/Quiz_System_P2/QuizSession';
   questionList: CreateQuestion[];
   currentQuestion: CreateQuestion;
@@ -33,6 +34,10 @@ export class ApiServiceService {
 
   public getQuizList() {
     return this.http.get<Quiz[]>(this.quizListUrl);
+  }
+
+  public getQuizListByUId(id){
+    return this.http.get<Quiz[]>(this.quizListUrlUId + '/' + id);
   }
 
   getQuestions(id): Observable<CreateQuestion[]> {
@@ -86,5 +91,6 @@ export class ApiServiceService {
     return this.http
       .get<IPosts>(newurl);
   }
-  
+
+ 
 }
