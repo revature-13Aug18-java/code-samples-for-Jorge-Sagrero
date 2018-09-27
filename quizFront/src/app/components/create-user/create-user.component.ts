@@ -19,6 +19,7 @@ export class CreateUserComponent implements OnInit {
 
   }
   public submit() {
+    console.log(this.login);
     this.apiService.createUser(this.login).subscribe((data) => {
       console.log(data);
       if(data == null ) {
@@ -30,7 +31,7 @@ export class CreateUserComponent implements OnInit {
          localStorage.setItem('userId', this.account.userId);
          localStorage.setItem('username',this.account.username);
          alert("User Account " + this.account.displayName + " Created Successfully");
-         this.router.navigate(['/loggedIn']);
+         this.router.navigate(['/login']);
 
        }
       }

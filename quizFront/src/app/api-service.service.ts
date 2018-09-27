@@ -27,10 +27,22 @@ export class ApiServiceService {
   quizListUrl = 'http://localhost:8080/Quiz_System_P2/quizList';// Or whatever you used for port number
   quizListUrlUId = 'http://localhost:8080/Quiz_System_P2/users/quizzes/';
   startQuizUrl = 'http://localhost:8080/Quiz_System_P2/QuizSession';
+  urlUpdateUser = 'http://localhost:8080/Quiz_System_P2/updateUser';
+
+
+  // newAccUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/createUser';
+  // urlLogin = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/login';
+  // urlSubmitQuiz = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/createQuiz';
+  // quizExistsUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/quizExists';
+  // newQuestion = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/addQuestion';
+  // quizListUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/quizList';	// Or whatever you used for port number
+  // startQuizUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/QuizSession';
+  // urlUpdateUser = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/updateUser';
   questionList: CreateQuestion[];
   currentQuestion: CreateQuestion;
   isRight: String[];
   quizBegan: boolean;
+
 
   public getQuizList() {
     return this.http.get<Quiz[]>(this.quizListUrl);
@@ -47,6 +59,11 @@ export class ApiServiceService {
   constructor(private http: HttpClient) {
     this.landingPage = true;
    }
+
+   public updateUser(user) {
+     return this.http.post<Account>(this.urlUpdateUser, user);
+   }
+
    public quizExists(newQuizName) {
     return this.http.post(this.quizExistsUrl , newQuizName);
     }
@@ -58,6 +75,7 @@ export class ApiServiceService {
     return this.userId ;
     }
 
+    // i am not sure if the below method is used , -Jorge S.
   public updateInfo(login) {
     return this.http.post<newAccount>(this.newAccUrl + this.userId, login, { observe:'response'});
   }
@@ -74,6 +92,7 @@ export class ApiServiceService {
         return this.http.post<LoginCredentials>(this.newAccUrl, { username: login.username, password : login.password, displayName : login.displayName  });
 
   }
+
 
   public verifyCredentials(login) {
     // return this.http.post<LoginCredentials>(this.urlLogin, login);

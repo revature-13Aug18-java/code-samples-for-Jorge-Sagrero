@@ -1,7 +1,8 @@
 export class Account {
+    userId: number;
     username: String;
-    fullname: String;
-    taken: Number;
-    passed: Number;
-    owned: Number;
+    displayName: String;
+    pwd: String;
+    quizzesTaken: number;
+    quizzesPassed: number;
 }
