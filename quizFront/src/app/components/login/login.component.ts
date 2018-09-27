@@ -13,11 +13,17 @@ export class LoginComponent implements OnInit {
   login: LoginCredentials = new LoginCredentials();
   user: any;
 
-  constructor(private apiService: ApiServiceService) {
 
+  constructor(private apiService: ApiServiceService, private router: Router) {
+
+   }
+   ionViewWillEnter(){
+    localStorage.clear();
    }
 
   ngOnInit() {
+    localStorage.clear();
+
   }
 
 //   The following snippet accesses the current domain's local Storage object and adds a data item to it using Storage.setItem().
@@ -36,10 +42,22 @@ export class LoginComponent implements OnInit {
   public submit() {
     this.apiService.verifyCredentials(this.login).subscribe((data) => {
       console.log(data);
-      // if(data == )
-      alert("User Verified, welcome back");}
-      , error => {}, () => {
+      if(data == null ) {
+        alert("Login Credentials Invalid");
+       }
+       else {
+         this.user = data;
+         localStorage.setItem('displayName', this.user.displayName );
+         localStorage.setItem('userId', this.user.userId);
+         localStorage.setItem('username',this.user.username);
+         alert("Welcome Back " + this.user.displayName);
+         this.router.navigate(['/loggedIn']);
 
+       }
+      }
+      , error => {}, () => {
+        console.log(this.user);
+        
 
       });
   }

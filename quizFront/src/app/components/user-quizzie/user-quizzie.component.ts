@@ -3,6 +3,7 @@ import {ApiServiceService } from '../../api-service.service';
 import { IPosts } from '../../models/IPosts';
 import { Category } from '../../models/category';
 import {Category2} from '../../models/category2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-quizzie',
@@ -34,11 +35,19 @@ export class UserQuizzieComponent implements OnInit {
     { id: 12, name: 'Entertainment: Music'},
     { id: 13, name: 'Entertainment: Musicals & Theatres'}
   ];
-  constructor(private apiService: ApiServiceService) { }
+  constructor(private apiService: ApiServiceService, private router: Router) { }
 
+
+  screenName: string;
+  
   ngOnInit() {
+    this.screenName = localStorage.getItem('displayName');
+    if(this.screenName  == null) {
+      this.router.navigate(['/login']);
+    }
     this.apiService.getCats().subscribe((allCats) => { console.log(allCats); this.cats = allCats;
     this.category3 = allCats.trivia_categories; });
+
 
   }
 

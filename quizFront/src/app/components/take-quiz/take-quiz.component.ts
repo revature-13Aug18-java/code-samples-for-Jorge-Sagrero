@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-take-quiz',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TakeQuizComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
+  screenName: string;
   ngOnInit() {
+    this.screenName = localStorage.getItem('displayName');
+    if(this.screenName  == null) {
+      this.router.navigate(['/login']);
+    }
+
   }
 
 }

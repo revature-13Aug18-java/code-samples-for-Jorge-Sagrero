@@ -5,6 +5,7 @@ import {ApiServiceService } from '../../api-service.service';
 import { Misc } from '../../models/misc';
 import { AnswerSet } from '../../models/answerSet';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-questionform',
@@ -22,7 +23,7 @@ export class QuestionformComponent implements OnInit {
   answerModel = new AnswerSet();
   currentQuizId: Number = 0;
 
-  constructor(private apiService: ApiServiceService) { }
+  constructor(private apiService: ApiServiceService, private router: Router) { }
 
   submit() {
     // this.quizzie.questions[this.count] = this.model;
@@ -100,7 +101,14 @@ addQuestionDataBase(questionId: Number) {
   get diagnostic() {return JSON.stringify(this.model);}
   
 
+  screenName: string;
+
   ngOnInit() {
+    this.screenName = localStorage.getItem('displayName');
+    if(this.screenName  == null) {
+      this.router.navigate(['/login']);
+    }
+
   }
 
 }
