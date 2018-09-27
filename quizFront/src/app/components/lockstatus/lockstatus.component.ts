@@ -10,6 +10,8 @@ export class LockstatusComponent implements OnInit {
 
   constructor(private apiService: ApiServiceService) { }
 
+
+  
   ngOnInit() {
     this.apiService.getQuizListByUId(1);
   }

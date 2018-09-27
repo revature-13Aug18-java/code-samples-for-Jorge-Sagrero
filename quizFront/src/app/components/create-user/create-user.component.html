@@ -1,4 +1,4 @@
-<div class="container" class="container-fluid" style="text-align:center">
+<div class="container" style="text-align:center">
     <form>
       <label>Username:</label>
       <input type="text" class="form-control" [(ngModel)]='login.username' name='username'>
@@ -6,7 +6,8 @@
       <input type="password" class="form-control" [(ngModel)]='login.password' name='password'>
       <label>Display Name:</label>
       <input type="text" class="form-control" [(ngModel)]='login.displayName' name='displayName'>
-      <button class="btn btn-submit" (click)='submit()'>Button</button>
+      <br><br>
+      <button class="btn btn-submit" (click)='submit()'>Create User</button>
 
       <p>username: {{login.username}} password: {{login.password}} displayname {{login.displayName}}</p>
     </form>
