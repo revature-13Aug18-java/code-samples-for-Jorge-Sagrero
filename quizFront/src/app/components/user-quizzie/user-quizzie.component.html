@@ -13,58 +13,60 @@
 <div class="container-fluid" style="text-align:center">
     <app-dashboard></app-dashboard>
 </div>
+<div class='container'>
+    <h1 class="text-secondary" style="text-align:center">Random Quizzie</h1><br><br>
+    <div *ngIf='!check' class="form-group" class="container" class="container-fluid" style="text-align:left">
+        <div class="row">
+            <div class="col">
+                <label for="category3" class="text-secondary" style="font-size:large; text-align:left">
+                    Select The Category!
+                </label>
 
-<h1 class="text-secondary" style="text-align:center">Random Quizzie</h1>
-<div *ngIf='!check' class="form-group" class="container" class="container-fluid" style="text-align:left">
-    <div class="row">
-        <div class="col">
-            <label for="category3" class="text-secondary" style="font-size:large; text-align:left">
-                Select The Category!
-            </label>
-
-            <select id="category3" name="category3" [(ngModel)]="category3s" class="form-control">
-                <option *ngFor="let cat3 of category3" [value]="cat3.id">
-                    {{cat3.name}}
-                </option>
-            </select>
-        </div>
-        <div class="col" class="text-secondary">
-            <label for="questions" class="text-secondary" style="font-size:large"> Enter Desired Number of Questions (Max
-                = 50) </label> <br>
-            <input id="questions" type="number" min="0" max="50" step="1.0" [(ngModel)]="amounts" placeholder="amount"><br>
+                <select id="category3" name="category3" [(ngModel)]="category3s" class="form-control">
+                    <option *ngFor="let cat3 of category3" [value]="cat3.id">
+                        {{cat3.name}}
+                    </option>
+                </select>
+            </div>
+            <div class="col" class="text-secondary">
+                <label for="questions" class="text-secondary" style="font-size:large"> Enter Desired Number of Questions
+                    (Max = 50) </label> <br>
+                <input id="questions" type="number" min="0" max="50" step="1.0" [(ngModel)]="amounts" placeholder="amount"><br>
+            </div>
         </div>
     </div>
-</div>
-<br><br><br>
-<div class="container" style="text-align:center">
-    <button (click)='getCategory()' class='btn btn-secondary btn-lg'>Generate Quizzie</button>
-</div>
-<br><br><br>
-
-<div *ngIf='check' class="form-group" class="container" style="font-size:large" class="text-secondary">
-    <label for="Quizzie">
-        {{posts.results[count].question}}
-    </label>
-    <select id="Quizzie" name="Quizzie" [(ngModel)]="userAnswer" class="form-control">
-
-        <option *ngIf='!alternate' [value]="posts.results[count].correct_answer">
-            {{posts.results[count].correct_answer}}
-        </option>
-        <option *ngFor="let incorrect of posts.results[count].incorrect_answers" [value]="incorrect">
-            {{incorrect}}
-        </option>
-        <option *ngIf='alternate' [value]="posts.results[count].correct_answer">
-            {{posts.results[count].correct_answer}}
-        </option>
-    </select>
-    <br><br>
+    <br><br><br>
     <div class="container" style="text-align:center">
-        <button (click)='getAnswer()' class='btn btn-success btn-lg'>Submit</button>
+        <button (click)='getCategory()' class='btn btn-secondary btn-lg'>Generate Quizzie</button>
+    </div>
+    <br><br><br>
+
+    <div *ngIf='check' class="form-group" class="container" style="font-size:large" class="text-secondary">
+        <label for="Quizzie">
+            {{posts.results[count].question}}
+        </label>
+        <select id="Quizzie" name="Quizzie" [(ngModel)]="userAnswer" class="form-control">
+
+            <option *ngIf='!alternate' [value]="posts.results[count].correct_answer">
+                {{posts.results[count].correct_answer}}
+            </option>
+            <option *ngFor="let incorrect of posts.results[count].incorrect_answers" [value]="incorrect">
+                {{incorrect}}
+            </option>
+            <option *ngIf='alternate' [value]="posts.results[count].correct_answer">
+                {{posts.results[count].correct_answer}}
+            </option>
+        </select>
+        <br><br>
+        <div class="container" style="text-align:center">
+            <button (click)='getAnswer()' class='btn btn-success btn-lg'>Submit</button>
+        </div>
+    </div>
+    <div *ngIf='!check' class="container-fluid" style="text-align:center">
+        <h3 class="text-secondary">Your Results: {{results}}%</h3>
     </div>
 </div>
-<div *ngIf='!check' class="container-fluid" style="text-align:center">
-    <label class="text-secondary" style="font-size:large">Your Results: {{results}}%</label>
+<br><br>
+<div class='container' style='text-align: center'>
+    <button class="btn btn-primary" (click)='logout()'>Logout</button> <br><br>
 </div>
-
-<br>
-<button class="btn btn-primary" (click)='logout()'>Logout</button> <br><br>
