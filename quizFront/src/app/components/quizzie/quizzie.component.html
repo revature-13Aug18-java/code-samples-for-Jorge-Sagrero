@@ -19,39 +19,45 @@
                 
             </li>
     </ul> -->
-
-<div *ngIf='!check' class="form-group" class="container" class="container-fluid" style="text-align:center">
-    <label for="category3">
-        Select The Category!
-    </label>
-    <select id="category3" name="category3" [(ngModel)]="category3s" class="form-control">
-        <option *ngFor="let cat3 of category3" [value]="cat3.id">
-            {{cat3.name}}
-
-
-        </option>
-
-    </select>
-
-    <label for="questions" class="text-dark"> Enter the Number of Questions (Max = 50) </label>
-    <input id="questions" type="number" min="0" max="50" step="1.0" [(ngModel)]="amounts" placeholder="amount"><br>
-
-    <button (click)='getCategory()' class='btn btn-danger'>Select to Generate Questions</button>
+<h1 class="text-secondary">Random Quizzie</h1>
+<div class="container"><img src="https://www.ifebp.org/Style%20Library/IFEBP/Images/InfoServices/banner_got-a-benefits-question.png"
+    /></div>
+<div *ngIf='!check' class="form-group" class="container" class="container-fluid" style="text-align:left">
+    <div class="row">
+        <div class="col">
+            <label for="category3" class="text-secondary" style="font-size:large; text-align:left">
+                Select The Category!
+            </label>
+            <select id="category3" name="category3" [(ngModel)]="category3s" class="form-control">
+                <option *ngFor="let cat3 of category3" [value]="cat3.id">
+                    {{cat3.name}}
+                </option>
+            </select>
+        </div>
+        <div class="col">
+            <label for="questions" class="text-secondary" style="font-size:large"> Enter Desired Number of Questions (Max
+                = 50) </label> <br>
+            <input id="questions" type="number" min="0" max="50" step="1.0" [(ngModel)]="amounts" placeholder="amount"><br>
+        </div>
+    </div>
 </div>
+<br><br><br>
+<div class="container" style="text-align:center">
+    <button (click)='getCategory()' class='btn btn-secondary btn-lg'>Generate Quizzie</button>
+</div>
+<br><br><br>
 <!-- <div *ngIf='check'>
     <ul *ngFor="let post of posts.results">
             <li >{{post.category}} {{post.correct_answer}} {{post.difficulty}} 
             </li>
     </ul>
     </div>  -->
-<p>Take Your Quizzie</p>
 
-<div *ngIf='check' class="form-group" class="container">
-    <label for="Quizzie">
+    <div *ngIf='check' class="form-group" class="container" style="font-size:large" class="text-secondary">
+            <label for="Quizzie">
         {{posts.results[count].question}}
     </label>
     <select id="Quizzie" name="Quizzie" [(ngModel)]="userAnswer" class="form-control">
-
 
         <option *ngIf='!alternate' [value]="posts.results[count].correct_answer">
             {{posts.results[count].correct_answer}}
@@ -62,14 +68,9 @@
         <option *ngIf='alternate' [value]="posts.results[count].correct_answer">
             {{posts.results[count].correct_answer}}
         </option>
-
-
-
-
     </select>
-    <button (click)='getAnswer()' class='btn btn-danger'>Enter your answer
-    </button>
+    <button (click)='getAnswer()' class='btn btn-success btn-lg'>Submit</button>
 </div>
 <div *ngIf='!check' class="container-fluid" style="text-align:center">
-    <label>Your Results: {{results}}%</label>
+    <label class="text-secondary" style="font-size:large">Your Results: {{results}}%</label>
 </div>
