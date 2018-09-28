@@ -31,5 +31,10 @@ export class LockstatusComponent implements OnInit {
     })
     
   }
+  logout() {
+    this.router.navigate(['/login']);
+
+
+  }
 
 }

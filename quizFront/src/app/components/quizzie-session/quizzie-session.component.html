@@ -8,10 +8,10 @@
 
 <div *ngIf="aipServe.quizBegan" class="container" class="text-secondary">
   <div class='container' style='text-align: center'>
-    <img src='http://www.argbackoffice.com/wp-content/uploads/2015/08/faqs.png' width="300" height="241"/>
+    <img src='http://www.argbackoffice.com/wp-content/uploads/2015/08/faqs.png' width="300" height="241" />
   </div>
   <br><br>
-  <h1>{{currentQuestionIndex}}. {{aipServe.currentQuestion.questContent}}</h1>
+  <h2>{{currentQuestionIndex}}. {{aipServe.currentQuestion.questContent}}</h2>
   <select class="form-control" [(ngModel)]="currentAnswer">
     <option *ngFor="let answer of possibleAnswers">{{answer}}</option>
   </select>
@@ -21,6 +21,11 @@
   <button class='btn btn-outline-success' (click)="nextQuestion()">Next</button>
   <br> <br> <br>
   <div class='container' style='text-align:center'>
-    <button class="btn btn-primary btn-lg" (click)="submit()">Submit</button>
+    <button class="btn btn-info btn-lg" (click)="submit()">Submit</button>
   </div>
+  <br><br>
+  <div class='container' style='text-align: center'>
+    <button class="btn btn-primary" (click)='logout()'>Logout</button> <br><br>
+  </div>
+
 </div>

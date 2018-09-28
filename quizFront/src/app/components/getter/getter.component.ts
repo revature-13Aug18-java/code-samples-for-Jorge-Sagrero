@@ -43,6 +43,11 @@ export class GetterComponent implements OnInit {
     // this.category3 = allCats.trivia_categories; });
       this.getQuizList();
   }
+  logout() {
+    this.router.navigate(['/login']);
+
+
+  }
 
 
 

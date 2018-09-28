@@ -18,5 +18,9 @@ export class TakeQuizComponent implements OnInit {
     }
 
   }
+  logout() {
+    this.router.navigate(['/login']);
 
+
+  }
 }

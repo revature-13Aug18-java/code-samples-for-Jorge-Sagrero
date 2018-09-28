@@ -21,5 +21,10 @@ export class LoggedInComponent implements OnInit {
     }
 
   }
+  logout() {
+    this.router.navigate(['/login']);
+
+
+  }
 
 }
