@@ -32,7 +32,11 @@ export class ViewStatsComponent implements OnInit {
   //   localStorage.clear();
   //  }
   
+  logout() {
+    this.router.navigate(['/login']);
 
+
+  }
   
 
 }

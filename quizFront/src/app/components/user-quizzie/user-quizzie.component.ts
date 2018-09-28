@@ -67,6 +67,11 @@ export class UserQuizzieComponent implements OnInit {
   
     this.getUsers();
   }
+  logout() {
+    this.router.navigate(['/login']);
+
+
+  }
 
   
   getAnswer(){

@@ -110,5 +110,10 @@ addQuestionDataBase(questionId: Number) {
     }
 
   }
+  logout() {
+    this.router.navigate(['/login']);
+
+
+  }
 
 }

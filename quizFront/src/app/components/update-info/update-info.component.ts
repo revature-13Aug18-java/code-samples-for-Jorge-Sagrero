@@ -39,4 +39,9 @@ export class UpdateInfoComponent implements OnInit {
       alert("Info Updated Successfully");
     });
 }
+logout() {
+  this.router.navigate(['/login']);
+
+
+}
 }

@@ -14,6 +14,12 @@ export class CreateUserComponent implements OnInit {
   account: any;
   login: newAccount = new newAccount();
 
+  goback() {
+    this.router.navigate(['/']);
+
+
+  }
+  
   ngOnInit() {
   
 

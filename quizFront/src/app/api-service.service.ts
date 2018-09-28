@@ -37,7 +37,7 @@ export class ApiServiceService {
   quizListUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/quizList';	// Or whatever you used for port number
   startQuizUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/QuizSession';
   urlUpdateUser = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/updateUser';
-  quizListUrlUId = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/quizzes/lockstatus/1';
+  quizListUrlUId = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/users/quizzes/61';
 
   questionList: CreateQuestion[];
   currentQuestion: CreateQuestion;

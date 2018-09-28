@@ -13,9 +13,13 @@ export class LoginComponent implements OnInit {
   login: LoginCredentials = new LoginCredentials();
   user: any;
 
+  goback() {
+    this.router.navigate(['/']);
 
+
+  }
   constructor(private apiService: ApiServiceService, private router: Router) {
-
+   
    }
    ionViewWillEnter(){
     localStorage.clear();

@@ -25,6 +25,11 @@ export class QuizzieSessionComponent implements OnInit {
       this.router.navigate(['/login']);
     }
   }
+  logout() {
+    this.router.navigate(['/login']);
+
+
+  }
 
   beginQuiz() {
     this.aipServe.quizBegan = true;
