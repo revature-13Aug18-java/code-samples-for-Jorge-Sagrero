@@ -19,25 +19,26 @@ export class ApiServiceService {
   urlbase= 'https://opentdb.com/api.php?';
   urlcategory='&category=';
   url2 = 'https://opentdb.com/api_category.php';
-  newAccUrl = 'http://localhost:8080/Quiz_System_P2/createUser';
-  urlLogin = 'http://localhost:8080/Quiz_System_P2/login';
-  urlSubmitQuiz = 'http://localhost:8080/Quiz_System_P2/createQuiz';
-  quizExistsUrl = 'http://localhost:8080/Quiz_System_P2/quizExists';
-  newQuestion = 'http://localhost:8080/Quiz_System_P2/addQuestion';
-  quizListUrl = 'http://localhost:8080/Quiz_System_P2/quizList';// Or whatever you used for port number
-  quizListUrlUId = 'http://localhost:8080/Quiz_System_P2/users/quizzes/';
-  startQuizUrl = 'http://localhost:8080/Quiz_System_P2/QuizSession';
-  urlUpdateUser = 'http://localhost:8080/Quiz_System_P2/updateUser';
+  // newAccUrl = 'http://localhost:8080/Quiz_System_P2/createUser';
+  // urlLogin = 'http://localhost:8080/Quiz_System_P2/login';
+  // urlSubmitQuiz = 'http://localhost:8080/Quiz_System_P2/createQuiz';
+  // quizExistsUrl = 'http://localhost:8080/Quiz_System_P2/quizExists';
+  // newQuestion = 'http://localhost:8080/Quiz_System_P2/addQuestion';
+  // quizListUrl = 'http://localhost:8080/Quiz_System_P2/quizList';	// Or whatever you used for port number
+  // startQuizUrl = 'http://localhost:8080/Quiz_System_P2/QuizSession';
+  // urlUpdateUser = 'http://localhost:8080/Quiz_System_P2/updateUser';
 
 
-  // newAccUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/createUser';
-  // urlLogin = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/login';
-  // urlSubmitQuiz = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/createQuiz';
-  // quizExistsUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/quizExists';
-  // newQuestion = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/addQuestion';
-  // quizListUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/quizList';	// Or whatever you used for port number
-  // startQuizUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/QuizSession';
-  // urlUpdateUser = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/updateUser';
+  newAccUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/createUser';
+  urlLogin = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/login';
+  urlSubmitQuiz = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/createQuiz';
+  quizExistsUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/quizExists';
+  newQuestion = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/addQuestion';
+  quizListUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/quizList';	// Or whatever you used for port number
+  startQuizUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/QuizSession';
+  urlUpdateUser = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/updateUser';
+  quizListUrlUId = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/quizzes/lockstatus/1';
+
   questionList: CreateQuestion[];
   currentQuestion: CreateQuestion;
   isRight: String[];
@@ -49,7 +50,7 @@ export class ApiServiceService {
   }
 
   public getQuizListByUId(id){
-    return this.http.get<Quiz[]>(this.quizListUrlUId + '/' + id);
+    return this.http.get<Quiz[]>(this.quizListUrlUId  );
   }
 
   getQuestions(id): Observable<CreateQuestion[]> {
@@ -77,7 +78,7 @@ export class ApiServiceService {
 
     // i am not sure if the below method is used , -Jorge S.
   public updateInfo(login) {
-    return this.http.post<newAccount>(this.newAccUrl + this.userId, login, { observe:'response'});
+    return this.http.post<newAccount>(this.newAccUrl + this.userId, login);
   }
 
   public addQuestion(question) {
@@ -89,6 +90,10 @@ export class ApiServiceService {
   }
   public createUser(login) {
     //return this.http.post<newAccount>(this.newAccUrl, login);
+    console.log("inside http createUser");
+      console.log(login.username);
+      console.log(login.password);
+      console.log(login.displayName);
         return this.http.post<LoginCredentials>(this.newAccUrl, { username: login.username, password : login.password, displayName : login.displayName  });
 
   }

@@ -21,6 +21,7 @@ export class CreateUserComponent implements OnInit {
   public submit() {
     console.log(this.login);
     this.apiService.createUser(this.login).subscribe((data) => {
+      console.log(this.login);
       console.log(data);
       if(data == null ) {
         alert("Login Credentials Invalid");

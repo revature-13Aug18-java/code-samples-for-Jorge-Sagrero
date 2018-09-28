@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from  '../../api-service.service';
+import { Router } from '@angular/router';
+import { CreateQuestion } from '../../models/create-question';
+import { Quiz } from '../../models/quiz';
 
 @Component({
   selector: 'app-lockstatus',
@@ -8,12 +11,25 @@ import { ApiServiceService } from  '../../api-service.service';
 })
 export class LockstatusComponent implements OnInit {
 
-  constructor(private apiService: ApiServiceService) { }
+  constructor(private apiService: ApiServiceService, private router: Router) { }
+  
+  
+
+  quizList: Quiz[];
 
 
   
   ngOnInit() {
-    this.apiService.getQuizListByUId(1);
+    var id: number = parseInt(localStorage.getItem('userId'));
+
+    console.log(id);
+    this.apiService.getQuizListByUId(id).subscribe(data => {
+      this.quizList = data;
+
+    },  error => {}, () => {
+      console.log(this.quizList);
+    })
+    
   }
 
 }
