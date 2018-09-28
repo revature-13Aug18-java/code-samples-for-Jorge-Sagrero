@@ -28,14 +28,20 @@ export class UpdateInfoComponent implements OnInit {
   public submit() {
     this.login.quizzesTaken = parseInt(localStorage.getItem('quizzesTaken'));
     this.login.quizzesPassed = parseInt(localStorage.getItem('quizzesPassed'));
-    this.login.pwd
-    let displayName
+    
+
     this.login.username = localStorage.getItem('username');
     this.login.userId = parseInt(localStorage.getItem('userId'));
+    console.log(this.login.displayName);
+    console.log(this.login.pwd);
+    
+    localStorage.setItem('username','' + this.login.username);
+
     localStorage.setItem('displayName','' + this.login.displayName);
     localStorage.setItem('pwd', ''+this.login.pwd);
 
     this.apiService.updateUser(this.login).subscribe(data => {
+      console.log(data);
       alert("Info Updated Successfully");
     });
 }
