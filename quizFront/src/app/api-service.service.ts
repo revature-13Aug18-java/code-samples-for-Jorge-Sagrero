@@ -19,25 +19,25 @@ export class ApiServiceService {
   urlbase= 'https://opentdb.com/api.php?';
   urlcategory='&category=';
   url2 = 'https://opentdb.com/api_category.php';
-  newAccUrl = 'http://localhost:8080/Quiz_System_P2/createUser';
-  urlLogin = 'http://localhost:8080/Quiz_System_P2/login';
-  urlSubmitQuiz = 'http://localhost:8080/Quiz_System_P2/createQuiz';
-  quizExistsUrl = 'http://localhost:8080/Quiz_System_P2/quizExists';
-  newQuestion = 'http://localhost:8080/Quiz_System_P2/addQuestion';
-  quizListUrl = 'http://localhost:8080/Quiz_System_P2/quizList';	// Or whatever you used for port number
-  startQuizUrl = 'http://localhost:8080/Quiz_System_P2/QuizSession';
-  urlUpdateUser = 'http://localhost:8080/Quiz_System_P2/updateUser';
+  // newAccUrl = 'http://localhost:8080/Quiz_System_P2/createUser';
+  // urlLogin = 'http://localhost:8080/Quiz_System_P2/login';
+  // urlSubmitQuiz = 'http://localhost:8080/Quiz_System_P2/createQuiz';
+  // quizExistsUrl = 'http://localhost:8080/Quiz_System_P2/quizExists';
+  // newQuestion = 'http://localhost:8080/Quiz_System_P2/addQuestion';
+  // quizListUrl = 'http://localhost:8080/Quiz_System_P2/quizList';	// Or whatever you used for port number
+  // startQuizUrl = 'http://localhost:8080/Quiz_System_P2/QuizSession';
+  // urlUpdateUser = 'http://localhost:8080/Quiz_System_P2/updateUser';
 
 
-  // newAccUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/createUser';
-  // urlLogin = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/login';
-  // urlSubmitQuiz = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/createQuiz';
-  // quizExistsUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/quizExists';
-  // newQuestion = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/addQuestion';
-  // quizListUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/quizList';	// Or whatever you used for port number
-  // startQuizUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/QuizSession';
-  // urlUpdateUser = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/updateUser';
-  // quizListUrlUId = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/users/quizzes/61';
+  newAccUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/createUser';
+  urlLogin = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/login';
+  urlSubmitQuiz = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/createQuiz';
+  quizExistsUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/quizExists';
+  newQuestion = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/addQuestion';
+  quizListUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/quizList';	// Or whatever you used for port number
+  startQuizUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/QuizSession';
+  urlUpdateUser = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/updateUser';
+  quizListUrlUId = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/users/quizzes/61';
 
   questionList: CreateQuestion[];
   currentQuestion: CreateQuestion;
