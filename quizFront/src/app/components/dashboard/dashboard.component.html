@@ -1,18 +1,20 @@
 <div class="jumbotron">
   <!-- <h1 class="tx-info">Welcome {{sysService.user.fullName}}</h1> -->
+  <div class="container" class="container-fluid" style="text-align:center">
+    <br>
+    <div class="btn-group" role="group">
+      <button class='btn btn-success' routerLink="/takeQuiz">Take a Quiz!</button>
+      <button class='btn btn-warning' routerLink="/questionform">Create A Custom Quiz</button>
+      <button class='btn btn-danger' routerLink="/viewStats">View Your Stats</button>
+      <button class='btn btn-info' routerLink="/updateInfo">Update Personal Info</button>
+    </div>
+  </div>
 </div>
-
-<div class="container"class="container-fluid" style="text-align:center">
-<br>
-    <button  routerLink="/questionform">Create A Custom Quiz</button>
-    <br><br>
-    <button  routerLink="/viewStats">View Your Stats</button>
-    <br><br>
-    <button  routerLink="/updateInfo">Update Personal Info</button>
-    <br><br>
-    <button  routerLink="/takeQuiz">Take a Quiz!</button>
-
-  <!-- <table class="table">
+<br><br>
+<div class='container'>
+  <app-lockstatus></app-lockstatus>
+</div>
+<!-- <table class="table">
     <tr>
       <td>View All Taken Quizzes ({{sysService.user.taken}}) <br>
         <button class="btn btn-info" (click)="moveToTaken()">View</button>
@@ -34,4 +36,3 @@
       <td>View Available Quizes <button class="btn btn-info" (click)="viewAvailableQuizes()">View</button></td>
     </tr>
   </table> -->
-</div> 

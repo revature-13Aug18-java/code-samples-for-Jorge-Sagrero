@@ -37,6 +37,8 @@ export class ApiServiceService {
   quizListUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/quizList';	// Or whatever you used for port number
   startQuizUrl = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/QuizSession';
   urlUpdateUser = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/updateUser';
+  quizListUrlUId = 'http://ec2-34-235-120-197.compute-1.amazonaws.com:8080/Quiz_System_P2/quizzes/lockstatus/1';
+
   questionList: CreateQuestion[];
   currentQuestion: CreateQuestion;
   isRight: String[];
@@ -45,6 +47,10 @@ export class ApiServiceService {
 
   public getQuizList() {
     return this.http.get<Quiz[]>(this.quizListUrl);
+  }
+
+  public getQuizListByUId(id){
+    return this.http.get<Quiz[]>(this.quizListUrlUId  );
   }
 
   getQuestions(id): Observable<CreateQuestion[]> {
@@ -72,7 +78,7 @@ export class ApiServiceService {
 
     // i am not sure if the below method is used , -Jorge S.
   public updateInfo(login) {
-    return this.http.post<newAccount>(this.newAccUrl + this.userId, login, { observe:'response'});
+    return this.http.post<newAccount>(this.newAccUrl + this.userId, login);
   }
 
   public addQuestion(question) {
@@ -109,5 +115,6 @@ export class ApiServiceService {
     return this.http
       .get<IPosts>(newurl);
   }
-  
+
+ 
 }
