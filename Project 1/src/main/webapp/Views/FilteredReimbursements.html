@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {background-color: rgb(0,0,0);}
+title   {color: LightBlue;}
+h4   {
+background-color: VeryDarkGrey;
+color: LightBlue;
+font-size:30px;
+margin: 0 auto; 
+width:250px
+}
+h3  {
+background-color: VeryDarkGrey;
+color: LightBlue;
+font-size:30px;
+margin: 0 auto; 
+width:250px
+}
+h4  {
+background-color: VeryDarkGrey;
+color: LightBlue;
+font-size:30px;
+
+}
+.label {
+background-color: VeryDarkGrey;
+color: LightBlue;
+font-size:20px;
+margin: 0 auto; 
+width:250px;
+}
+form{
+font-size:20px;
+margin: 0 auto; 
+width:250px;
+}
+
+label {
+
+font-size:20px;
+margin: 0 auto; 
+width:250px;
+}
+input {
+font-size:15px;
+margin: 0 auto; 
+width:250px;
+}
+p {
+color: LightBlue;
+font-size:50px;
+
+}
+div {
+color: Azure;
+font-size:20px;
+}
+a{
+color: black;
+font-size:20px;
+}
+/* .holdit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+</style>
+<meta charset="ISO-8859-1">
+<title>My Profile</title>
+</head>
+	
+<body>
+<div id="user"></div>
+
+<div>
+	<table id="table" class="table table-dark">
+	<tr>
+	<th class="thead-dark">First Name</th>
+	<th scope="row">Last Name</th>
+	<th scope="row">Employee Id</th>
+	<th scope="row">Receipt Number</th>
+	<th scope="row">Phone Number</th>
+	<th scope="row">Amount</th>
+	<th scope="row">Reason</th>
+	<th scope="row">Status</th>
+	<th scope="row">Manager ID</th>
+	</tr>
+
+	</table>
+	</div>
+	<div class="container">
+		<h3>Your filtered Results</h3>
+	</div>
+	<br>
+	<div class="p-3 mb-2 bg-success text-white"><a href="/p1-Jorge-Sagrero-Perez/logout"><b>LogOut</b></a></div>
+	<br>
+	<div class="p-3 mb-2 bg-warning text-dark"><a href="/p1-Jorge-Sagrero-Perez/Views/ManagerProfile.html"><b>Go back to Manager Home Page</b></a></div>
+	<br>
+	<div class="p-3 mb-2 bg-success text-white"><a href="/p1-Jorge-Sagrero-Perez/Views/AllReimbursements.html"><b>Go back to Complete List of Reimbursements</b></a></div>
+	
+<!-- 	
+	<a href="/p1-Jorge-Sagrero-Perez/Views/ManagerProfile.html">Go Back to Manager Home Page</a>
+	
+	<a href="/p1-Jorge-Sagrero-Perez/logout">Log Out</a>
+	<a href="/p1-Jorge-Sagrero-Perez/Views/AllReimbursements.html">Go back to Complete List of Reimbursements</a> -->
+	<script src="/p1-Jorge-Sagrero-Perez/Scripts/CheckSession.js"></script>
+	<script src="/p1-Jorge-Sagrero-Perez/Scripts/completedReim.js"></script>
+	
+	
+</body>
+</html>
