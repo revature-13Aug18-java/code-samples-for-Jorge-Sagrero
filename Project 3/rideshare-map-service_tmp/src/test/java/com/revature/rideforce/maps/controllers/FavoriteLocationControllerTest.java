@@ -43,13 +43,6 @@ public class FavoriteLocationControllerTest {
 	}
 	
 	@Test
-	public void getOneTest() {
-		String address= "2925 Rensselaer Ct. Vienna, VA 22181";
-//		LatLng expectedLatLng= favoriteLocationService.saveFavoriteLocation(address, 1);
-		
-	}
-	
-	@Test
 	public void testGet() throws Exception {
 		final String address = "11730 Plaza America Dr. Reston, VA";
 		final String name = "workplace";
@@ -60,24 +53,6 @@ public class FavoriteLocationControllerTest {
 		given(favoriteLocationService.saveFavoriteLocation(address, userId, name)).willReturn(location);
 		locationMvc.perform(get("/favoritelocations/users/4")).andExpect(status().isOk());
 	}
-// this one was not working	
-//	@Test
-//	public void testPost() throws Exception {
-//		final String address = "11730 Plaza America Dr. Reston, VA";
-//		final String name = "workplace";
-//		final String locationJson = "{ lat: 38.95, lng: -77.35 }";
-//		int userId = 4;
-//
-//		FavoriteLocation location = new FavoriteLocation(address, 38.9533932, -77.35044780000001, name, userId);
-//		given(favoriteLocationService.saveFavoriteLocation(address, userId, name)).willReturn(location);
-//		System.out.println(locationMvc.perform(post("/favoritelocations").param("address", address).param("name", name).param("userId", "4")).andExpect(status().isOk()));
-//	}
 
-//	@Test
-//	public void testGetBadParams() throws Exception {
-//		mvc.perform(get("/location")).andExpect(status().isBadRequest());
-//		mvc.perform(get("/location").param("address", "")).andExpect(status().isBadRequest());
-//		
-//	}
 
 }

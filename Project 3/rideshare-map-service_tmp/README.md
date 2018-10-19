@@ -1,4 +1,4 @@
-# RideForce maps service
+# Project 3 RideForce maps service
 
 This service handles the following endpoints (see the API documentation in
 the gateway service repo for all endpoints and their explanations):
@@ -18,19 +18,6 @@ environment variables that are necessary for proper program execution:
 - `JDBC_PASSWORD`: the database password
 - `MAPS_API_KEY`: the Google Maps API key
 
-### Setting up environment variables in STS:
+This project was a batch project that was divided into 3 teams with 1 team being the microservice team. The microservice team was split into three groups with my group being the map service team. This was a project handed to us from another batch, and there was no documentation or testing done, so our main focus with this sprint was to perform unit testing and documentation on the microservices and add/resolve features and issues passed on to us from the previous sprint. We managed to get 80% code coverage for our the map microservice and added a feature to save favorite locations based on the user.
 
-- In the run dropdown menu, select run configurations
-
-	![Image of run bttn](https://i.imgur.com/PwGMq8B.png)
-	
-- Select the proper configuration context to specify the scope of your application variables
-	![Image of conf context](https://i.imgur.com/PQGfgXW.png)
-- Select the environment variables tab
-	![Image of env variables tab](https://i.imgur.com/rnjpaVB.png)
-- On the right, select "new..." to start adding your variables
-- In the name box, put the descriptor of your variable (ex. JDBC_USERNAME)
-- In the variable box, type the value of your variable
-- Hit "apply"
-
-Note: Used ECL Emma, a free Java code coverage tool to ensure adequate coverage
+# Technologies used: Microservices, Angular, Spring, DevOps, Agile, Java, Maven, Amazon Web Services, Git, 
