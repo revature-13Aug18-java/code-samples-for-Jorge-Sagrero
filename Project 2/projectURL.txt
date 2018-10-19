@@ -1,1 +1,0 @@
-http://quizzie-p2-revature.s3-website-us-east-1.amazonaws.com/
