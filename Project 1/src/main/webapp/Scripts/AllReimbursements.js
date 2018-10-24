@@ -74,7 +74,6 @@ function populateUser(xhr){
 
 		}
 		loc = loc + `<td> ${responseArr[b].accountNumber[i].managerId} </td>`;
-		console.log("HELLO BITCH");
 		newRow.innerHTML = loc;
 		console.log(loc);
 		
