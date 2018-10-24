@@ -14,23 +14,7 @@ function sendAjaxGet(url, func){
 	xhr.open("GET", url);
 	xhr.send();
 }
-//"email": "JSAGREROPEREZ@GMAIL.COM",
-//"pswrd": "PASSWORD123",
-//"firstName": "JORGE",
-//"lastName": "SAGRERO",
-//"phoneNumber": 6614964009,
-//"address": "1530 Cherry Street,Baking CA 93305",
-//"manager": 0,
-//"loggedIn": "FALSE",
-//"accountNumber": [
-//{
-//"receipt": 1,
-//"amount": 500,
-//"reason": "BITCH YOU OWE ME",
-//"status": 0,
-//"managerId": 0,
-//"accountNumber": 1
-//},
+
 
 sendAjaxGet(privateReceiptsUrl, populateUser);
 
@@ -48,22 +32,7 @@ function populateUser(xhr){
 	let table = document.getElementById("table");
 
 
-//	<th class="thead-dark">First Name</th>
-//	<th scope="row">Last Name</th>
-//	<th scope="row">Employee Id</th>
-//	<th scope="row">Receipt Number</th>
-//	<th scope="row">Phone Number</th>
-//	<th scope="row">Amount</th>
-//	<th scope="row">Reason</th>
-//	<th scope="row">Status</th>
-//	<th scope="row">Manager ID</th>
-//	<th scope="row">Account Number</th>
-//	"receipt": 1,
-//	"amount": 500,
-//	"reason": "BITCH YOU OWE ME",
-//	"status": 0,
-//	"managerId": 0,
-//	"accountNumber": 1
+
 	
 	
 	for(i in responseArr){
